@@ -359,8 +359,8 @@ namespace wwd_utils {
             // ConnectionString = "Data Source=localhost;Initial Catalog=abb;Integrated Security=True";
             // Data Source=SQL-SVR\MSSQLR2;Initial Catalog=abb;Integrated Security=True;Application Name=FileMonitor;Max Pool Size=200;Net=dbmsrpcn;Packet Size=1024;
 
-            // Data Source=DBB1\SQL1050;Initial Catalog=abb;Integrated Security=False;User=filemonitor;Password=filemonitor;Application Name=FileMonitor;Max Pool Size=200;Packet Size=1024;
-            // Server=dbb1\sql1050;Database=abb;User Id=filemonitor;Password=filemonitor;
+            // Data Source=DBB1\SQL1050;Initial Catalog=abb;Integrated Security=False;User=filemonitor;Password=9BE0CFE2C4B348C290ADD1D52BF96D3D;Application Name=FileMonitor;Max Pool Size=200;Packet Size=1024;
+            // Server=dbb1\sql1050;Database=abb;User Id=filemonitor;Password=9BE0CFE2C4B348C290ADD1D52BF96D3D;
 
             cs = "Server=";
             tmp = _Server;
