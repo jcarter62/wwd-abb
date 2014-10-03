@@ -1,0 +1,3 @@
+﻿Walkthrough creating a service.
+
+http://msdn.microsoft.com/en-us/library/zt39148a(v=VS.90).aspx#Y1357

@@ -1,0 +1,19 @@
+﻿http://msdn.microsoft.com/en-us/magazine/cc164015.aspx
+
+Timers often play an important role in both client applications 
+and server-based components (including Windows services). 
+Writing effective timer-driven managed code requires a clear 
+understanding of program flow and the subtleties of the .NET 
+threading model. The .NET Framework Class Library provides three 
+different timer classes: System.Windows.Forms.Timer, 
+System.Timers.Timer, and System.Threading.Timer. Each of these 
+classes has been designed and optimized for use in different 
+situations. This article examines the three timer classes and 
+helps you gain an understanding of how and when each class 
+should be used.
+
+http://msdn.microsoft.com/en-us/magazine/cc164826.aspx
+
+http://download.microsoft.com/download/2/4/5/245d8ce3-1528-4668-99b1-0f4e7734896f/TimersinNET.exe
+
+

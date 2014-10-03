@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="abb" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost\sqlexpress;Initial Catalog=abb;Integrated Security=True" SettingsObjectName="db.Properties.Settings" SettingsPropertyName="abbConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Readings" Member="Readings">
+    <Type Name="Reading">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SiteName" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ChName" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="dtime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="reading" Member="reading1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="file_id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="row" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Total_Readings" Member="Total_Readings">
+    <Type Name="Total_Reading">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SiteName" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ChName" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="dtime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="reading" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="reading_units" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="flow" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="flow_units" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="file_id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="row" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TReadings" Member="TReadings">
+    <Type Name="TReading">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SiteName" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ChName" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="dtime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="reading" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="session" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="file_id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="row" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TTotal_Readings" Member="TTotal_Readings">
+    <Type Name="TTotal_Reading">
+      <Column Name="slot_id" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier" IsPrimaryKey="true" CanBeNull="true" />
+      <Column Name="SiteName" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ChName" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="dtime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="reading" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="reading_units" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="flow" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="flow_units" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="file_id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="row" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Files" Member="Files">
+    <Type Name="File">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="VarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="processdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="md5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="date_from" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="date_to" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="data_rows" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="invalid_data" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DirectoryName" Type="System.String" DbType="VarChar(512)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(512)" CanBeNull="true" />
+      <Column Name="LastWriteTimeUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreationTimeUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Length" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="NeedsProcessing" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.v_Total_Readings_60days" Member="v_Total_Readings_60days">
+    <Type Name="v_Total_Readings_60day">
+      <Column Name="Region" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="SiteName" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ChName" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="dtime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="reading" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SiteStatus" Member="SiteStatus">
+    <Type Name="SiteStatus">
+      <Column Name="SiteName" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CurrentUpdate" Type="System.String" DbType="VarChar(254)" CanBeNull="true" />
+      <Column Name="LastUpdate" Type="System.String" DbType="VarChar(254)" CanBeNull="true" />
+      <Column Name="CurrentTimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastTimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SiteRegions" Member="SiteRegions">
+    <Type Name="SiteRegion">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SiteName" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Status" Member="Status">
+    <Type Name="Status">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Computer" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tstamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_Copy_Session_Records" Method="sp_Copy_Session_Records">
+    <Parameter Name="session" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Copy_TTotal_Readings" Method="sp_Copy_TTotal_Readings">
+    <Parameter Name="slot_id" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="ReturnMessage" Parameter="returnMessage" Type="System.String" DbType="VarChar(100)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Remove_slot_id_records" Method="sp_Remove_slot_id_records">
+    <Parameter Name="slot_id" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Insert_TTotal_Reading" Method="sp_Insert_TTotal_Reading">
+    <Parameter Name="slot_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="SiteName" Parameter="siteName" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="ChName" Parameter="chName" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="dtime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="reading" Type="System.Double" DbType="Float" />
+    <Parameter Name="reading_units" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="flow" Type="System.Double" DbType="Float" />
+    <Parameter Name="flow_units" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="file_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="row" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Remove_Empty_TTotal_Readings" Method="sp_Remove_Empty_TTotal_Readings">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_AFUse" Method="sp_AFUse">
+    <Parameter Name="Site" Parameter="site" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="days" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

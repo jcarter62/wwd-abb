@@ -1,0 +1,2 @@
+﻿Delegates tutorial:
+http://msdn.microsoft.com/en-us/library/aa288459(VS.71,printer).aspx

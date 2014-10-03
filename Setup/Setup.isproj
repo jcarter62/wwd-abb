@@ -1,0 +1,44 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+	<PropertyGroup>
+		<!-- Select a Product Configuration -->
+		<InstallShieldProductConfiguration>Express</InstallShieldProductConfiguration>
+		<!-- Select a Visual Studio Configuration / InstallShield Release -->
+		<Configuration>Debug</Configuration>
+		<InstallShieldRelease>$(Configuration)</InstallShieldRelease>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- The InstallShieldProject item selects the project to build -->
+		<InstallShieldProject Include="$(MSBuildProjectDirectory)\$(MSBuildProjectName).isl"/>
+		<!-- The InstallShieldReleaseFlags sets Release Flags -->
+		<!--<InstallShieldReleaseFlags Include=""/>-->
+		<!-- The InstallShieldMergeModulePath specifies what directories are
+		searched for Merge Modules -->
+		<!--<InstallShieldMergeModulePath Include=""/>-->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The ProjectReference items refer to any Visual Studio solutions you want to automatically probe for Project Output Groups.  -->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The TaggedOutputs items allow you to explicitly add extra files to output groups. Each item must include both Name and OutputGroup, as well as TargetPath metadata values. -->
+		<!--<TaggedOutputs Include="C:\My Test Exe.exe">
+			<Name>My Test Project</Name>
+			<OutputGroup>Primary output</OutputGroup>
+			<TargetPath>My Test Exe.exe</TargetPath>
+		</TaggedOutputs> -->
+	</ItemGroup>
+	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2013Limited\InstallShield.targets"/>
+	<ItemGroup>
+		<ProjectReference Include="..\FileMonitor\FileMonitor.csproj">
+			<Name>FileMonitor</Name>
+			<Project>{B494647E-2E72-4D4B-91D6-E11624480CA9}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\FileMonitorUI\FileMonitorUI.csproj">
+			<Name>FileMonitorUI</Name>
+			<Project>{E8C0DF34-F7F8-4420-B6D2-C97E3594FBB4}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\TestApp\TestApp.csproj">
+			<Name>TestApp</Name>
+			<Project>{7EA9CF42-A5AD-42AE-A442-AFB821487DFE}</Project>
+		</ProjectReference>
+	</ItemGroup>
+</Project>
