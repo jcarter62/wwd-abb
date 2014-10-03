@@ -1,0 +1,12 @@
+D:\local\projects\git\abb\wwd-utils\obj\Debug\wwd-utils.csprojResolveAssemblyReference.cache
+D:\local\projects\git\abb\wwd-utils\obj\Debug\wwd_utils.Properties.Resources.resources
+D:\local\projects\git\abb\wwd-utils\obj\Debug\wwd-utils.csproj.GenerateResource.Cache
+D:\local\projects\git\abb\wwd-utils\bin\Debug\wwd-utils.dll.config
+D:\local\projects\git\abb\wwd-utils\bin\Debug\wwd-utils.XML
+D:\local\projects\git\abb\wwd-utils\bin\Debug\wwd-utils.dll
+D:\local\projects\git\abb\wwd-utils\bin\Debug\wwd-utils.pdb
+D:\local\projects\git\abb\wwd-utils\bin\Debug\db.dll
+D:\local\projects\git\abb\wwd-utils\bin\Debug\edtFTPnet.dll
+D:\local\projects\git\abb\wwd-utils\bin\Debug\db.pdb
+D:\local\projects\git\abb\wwd-utils\obj\Debug\wwd-utils.dll
+D:\local\projects\git\abb\wwd-utils\obj\Debug\wwd-utils.pdb

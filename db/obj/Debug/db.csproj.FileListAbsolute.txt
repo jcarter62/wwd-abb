@@ -1,0 +1,6 @@
+D:\local\projects\git\abb\db\bin\Debug\db.dll.config
+D:\local\projects\git\abb\db\bin\Debug\db.dll
+D:\local\projects\git\abb\db\bin\Debug\db.pdb
+D:\local\projects\git\abb\db\obj\Debug\db.csprojResolveAssemblyReference.cache
+D:\local\projects\git\abb\db\obj\Debug\db.dll
+D:\local\projects\git\abb\db\obj\Debug\db.pdb

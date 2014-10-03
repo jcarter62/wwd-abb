@@ -1,0 +1,16 @@
+D:\local\projects\git\abb\FileMonitor\obj\Debug\FileMonitor.csprojResolveAssemblyReference.cache
+D:\local\projects\git\abb\FileMonitor\obj\Debug\FileMonitor.FileMonitorService.resources
+D:\local\projects\git\abb\FileMonitor\obj\Debug\FileMonitor.ProjectInstaller.resources
+D:\local\projects\git\abb\FileMonitor\obj\Debug\FileMonitor.Properties.Resources.resources
+D:\local\projects\git\abb\FileMonitor\obj\Debug\FileMonitor.csproj.GenerateResource.Cache
+D:\local\projects\git\abb\FileMonitor\bin\Debug\FileMonitor.exe.config
+D:\local\projects\git\abb\FileMonitor\bin\Debug\FileMonitor.exe
+D:\local\projects\git\abb\FileMonitor\bin\Debug\FileMonitor.pdb
+D:\local\projects\git\abb\FileMonitor\bin\Debug\db.dll
+D:\local\projects\git\abb\FileMonitor\bin\Debug\wwd-utils.dll
+D:\local\projects\git\abb\FileMonitor\bin\Debug\edtFTPnet.dll
+D:\local\projects\git\abb\FileMonitor\bin\Debug\db.pdb
+D:\local\projects\git\abb\FileMonitor\bin\Debug\wwd-utils.pdb
+D:\local\projects\git\abb\FileMonitor\bin\Debug\wwd-utils.xml
+D:\local\projects\git\abb\FileMonitor\obj\Debug\FileMonitor.exe
+D:\local\projects\git\abb\FileMonitor\obj\Debug\FileMonitor.pdb

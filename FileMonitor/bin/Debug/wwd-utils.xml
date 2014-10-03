@@ -1,0 +1,867 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>wwd-utils</name>
+    </assembly>
+    <members>
+        <member name="T:wwd_utils.AbbUtils">
+            <summary>
+            Set of procedures to help processing of ABB files.
+            </summary>
+        </member>
+        <member name="M:wwd_utils.AbbUtils.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:wwd_utils.AbbUtils.ProcessFile">
+            <summary>
+            Process current file specified by the guid FileID, also performs an update to the "File" record.
+            </summary>
+            <returns>True if processing was successfull, False if failed</returns>
+        </member>
+        <member name="M:wwd_utils.AbbUtils.GetFileThatNeedsProcessing">
+            <summary>
+            GetFileThatNeedsProcessing
+            </summary>
+            <returns>Guid ID of file that requires processing.</returns>
+        </member>
+        <member name="M:wwd_utils.AbbUtils.UpdateFileRecord(System.String)">
+            <summary>
+            Update the ABB "File" record to indicate the "File" has been processed.  Updated fields includeing:
+            * md5 = caluclated md5 hash of file
+            * data_rows = number of data rows
+            * date_from (date) = data minimum date
+            * date_to (date) = date maximum date
+            * length = file length (bytes)
+            * processdate (datetime)
+            * NeedsProcessing = False
+            </summary>
+            <param name="GuidID"></param>
+            <returns>True if record was updated, False if update failed</returns>
+        </member>
+        <member name="T:wwd_utils.AppSettings">
+            <summary>
+            This class is used to abstract application settings.
+            </summary>
+        </member>
+        <member name="M:wwd_utils.AppSettings.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:wwd_utils.AppSettings.Finalize">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:wwd_utils.AppSettings.Load">
+            <summary>
+            Populate class properties with settings, Server, Database, Username, ...
+            </summary>
+        </member>
+        <member name="M:wwd_utils.AppSettings.Save">
+            <summary>
+            Save values to settings file.
+            </summary>
+        </member>
+        <member name="M:wwd_utils.AppSettings.GetString(System.String)">
+            <summary>
+            Get Setting, clear text
+            </summary>
+            <param name="Name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.AppSettings.GetString(System.String,System.Boolean)">
+            <summary>
+            Get Setting, clear text or decrypted based on parameter
+            </summary>
+            <param name="Name"></param>
+            <param name="Decrypt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.AppSettings.WriteString(System.String,System.String,System.Boolean)">
+            <summary>
+            Write setting, encrypt based on parameter
+            </summary>
+            <param name="Name"></param>
+            <param name="Value"></param>
+            <param name="Encrypt"></param>
+        </member>
+        <member name="M:wwd_utils.AppSettings.WriteString(System.String,System.String)">
+            <summary>
+            Write setting, clear text
+            </summary>
+            <param name="Name"></param>
+            <param name="Value"></param>
+        </member>
+        <member name="P:wwd_utils.AppSettings.Server">
+            <summary>
+            SQL Server, Database Server Name
+            </summary>
+        </member>
+        <member name="P:wwd_utils.AppSettings.Database">
+            <summary>
+            SQL Server, Database Instance
+            </summary>
+        </member>
+        <member name="P:wwd_utils.AppSettings.UserName">
+            <summary>
+            The user name required for access to database
+            </summary>
+        </member>
+        <member name="P:wwd_utils.AppSettings.Password">
+            <summary>
+            The password required for access to database
+            </summary>
+        </member>
+        <member name="P:wwd_utils.AppSettings.WindowsAuthentication">
+            <summary>
+            Flag that indicates if Integrated authentication is used to gain access to database
+            </summary>
+        </member>
+        <member name="P:wwd_utils.AppSettings.ConnectionString">
+            <summary>
+            This is the connection string required to gain access to database
+            </summary>
+        </member>
+        <member name="P:wwd_utils.AppSettings.StartDirectory">
+            <summary>
+            Root directory where ABB files are located.
+            </summary>
+        </member>
+        <member name="P:wwd_utils.AppSettings.Debug">
+            <summary>
+            Simple application flag
+            </summary>
+        </member>
+        <member name="T:wwd_utils.DebuggerWriter">
+            <summary>
+            Implements a <see cref="T:System.IO.TextWriter"/> for writing information to the debugger log.
+            </summary>
+            <seealso cref="M:System.Diagnostics.Debugger.Log(System.Int32,System.String,System.String)"/>
+        </member>
+        <member name="M:wwd_utils.DebuggerWriter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:wwd_utils.DebuggerWriter"/> class.
+            </summary>
+        </member>
+        <member name="M:wwd_utils.DebuggerWriter.#ctor(System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:wwd_utils.DebuggerWriter"/> class with the specified level and category.
+            </summary>
+            <param name="level">A description of the importance of the messages.</param>
+            <param name="category">The category of the messages.</param>
+        </member>
+        <member name="M:wwd_utils.DebuggerWriter.#ctor(System.Int32,System.String,System.IFormatProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:wwd_utils.DebuggerWriter"/> class with the specified level, category and format provider.
+            </summary>
+            <param name="level">A description of the importance of the messages.</param>
+            <param name="category">The category of the messages.</param>
+            <param name="formatProvider">An <see cref="T:System.IFormatProvider"/> object that controls formatting.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:wwd_utils.Encryption" -->
+        <member name="M:wwd_utils.Encryption.Encrypt(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Encrypt
+            </summary>
+            <param name="clearData"></param>
+            <param name="Key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.Encryption.Encrypt(System.String)">
+            <summary>
+            Encrypt
+            </summary>
+            <param name="clearText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.Encryption.Encrypt(System.String,System.String)">
+            <summary>
+            Encrypt
+            </summary>
+            <param name="clearText"></param>
+            <param name="Password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.Encryption.Encrypt(System.Byte[],System.String)">
+            <summary>
+            Encrypt
+            </summary>
+            <param name="clearData"></param>
+            <param name="Password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.Encryption.Encrypt(System.String,System.String,System.String)">
+            <summary>
+            Encrypt
+            </summary>
+            <param name="fileIn"></param>
+            <param name="fileOut"></param>
+            <param name="Password"></param>
+        </member>
+        <member name="M:wwd_utils.Encryption.Decrypt(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Decrypt
+            </summary>
+            <param name="cipherData"></param>
+            <param name="Key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.Encryption.Decrypt(System.String)">
+             <summary>
+            
+             </summary>
+             <param name="cipherText"></param>
+             <returns></returns>
+        </member>
+        <member name="M:wwd_utils.Encryption.Decrypt(System.String,System.String)">
+             <summary>
+            
+             </summary>
+             <param name="cipherText"></param>
+             <param name="Password"></param>
+             <returns></returns>
+        </member>
+        <member name="M:wwd_utils.Encryption.Decrypt(System.Byte[],System.String)">
+            <summary>
+            Decrypt
+            </summary>
+            <param name="cipherData"></param>
+            <param name="Password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.Encryption.Decrypt(System.String,System.String,System.String)">
+            <summary>
+            Decrypt
+            </summary>
+            <param name="fileIn"></param>
+            <param name="fileOut"></param>
+            <param name="Password"></param>
+        </member>
+        <member name="T:wwd_utils.MyFileInfo">
+            <summary>
+            FileInfo class with additional properties, and a new ToString() method.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:wwd_utils.EnumFiles" -->
+        <member name="M:wwd_utils.EnumFiles.PrintList">
+            <summary>
+            Generate list of files to console.
+            </summary>
+        </member>
+        <member name="T:wwd_utils.FileCalcs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:wwd_utils.FileMonitorStatus">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:wwd_utils.NotifyFilesChanged">
+             <summary>
+            
+             </summary>
+             <param name="FileName"></param>
+        </member>
+        <member name="T:wwd_utils.ftpsites">
+            <summary>
+            List of sites described in xml settings file.
+            </summary>
+        </member>
+        <member name="F:wwd_utils.ftpsites.Sites">
+            <summary>
+            List of sites
+            </summary>
+        </member>
+        <member name="F:wwd_utils.ftpsites.LogFile">
+            <summary>
+            Log File Name
+            </summary>
+        </member>
+        <member name="M:wwd_utils.ftpsites.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:wwd_utils.ftpsites.Load">
+            <summary>
+            Load all the ftp sites from xml data file.
+            </summary>
+        </member>
+        <member name="M:wwd_utils.ftpsites.SelectSites(System.Int32,System.Int32)">
+            <summary>
+            SelectSites:
+            </summary>
+            <param name="NumberOfSplits">This is the number of times you wish to split the sites.  If this value is 0, then all sites are selected.</param>
+            <param name="SplitNumber">Identifies which split you wish to select.</param>
+        </member>
+        <member name="M:wwd_utils.ftpsites.LastSite(System.Collections.Generic.List{wwd_utils.ftpsite})">
+            <summary>
+            Determine the highest index of a non-empty site.
+            </summary>
+            <param name="SiteList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.ftpsites.SelectSites">
+            <summary>
+            Select ALL sites.
+            </summary>
+        </member>
+        <member name="M:wwd_utils.ftpsites.Save">
+            <summary>
+            Store all ftp sites to the xml data file.
+            </summary>
+        </member>
+        <member name="M:wwd_utils.ftpsites.GetSiteByID(System.String)">
+            <summary>
+            Find the ftpsite record by guid/site id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.ftpsites.GetFiles">
+            <summary>
+            Download all files matching mask from each site.
+            </summary>
+        </member>
+        <member name="P:wwd_utils.ftpsites.LastLogMessage">
+            <summary>
+            The last message logged.
+            </summary>
+        </member>
+        <member name="T:wwd_utils.ftpsite">
+            <summary>
+            ftpsite
+            </summary>
+        </member>
+        <member name="M:wwd_utils.ftpsite.#ctor">
+            <summary>
+            Class that describes one ftp site.
+            </summary>
+        </member>
+        <member name="M:wwd_utils.ftpsite.ToString">
+            <summary>
+            Generates a "packed" version of this class to be used to store the contents into an xml file.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.ftpsite.Copy(wwd_utils.ftpsite)">
+            <summary>
+            Copy from existing ftpsite to this.
+            </summary>
+            <param name="from"></param>
+        </member>
+        <member name="M:wwd_utils.ftpsite.GetFiles">
+            <summary>
+            Transmit Files for a site.
+            </summary>
+            <returns>True if successful, False if failed</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:wwd_utils.ftpsite.DownloadedFileOK(System.String,EnterpriseDT.Net.Ftp.FTPFile)" -->
+        <member name="M:wwd_utils.ftpsite.MoveFile(System.String,System.String,System.String)">
+            <summary>
+            Perform file move from temp path to permanent/localpath.
+            </summary>
+            <param name="TempPath"></param>
+            <param name="localpath"></param>
+            <param name="remotefile"></param>
+        </member>
+        <member name="M:wwd_utils.ftpsite.HasFileChanged(System.String,EnterpriseDT.Net.Ftp.FTPFile)">
+            <summary>
+            Determine if remote file has changed
+            </summary>
+            <param name="localfile"></param>
+            <param name="fTPFile"></param>
+            <returns>True if file has changed, False otherwise</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:wwd_utils.ftpsite.SetFileTime(System.String,System.DateTime)" -->
+        <member name="M:wwd_utils.ftpsite.SiteParamsOK">
+            <summary>
+            Check to see if ftpsite parameters are ok
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:wwd_utils.ftpsite.host">
+            <summary>
+            ftp site: IP address, or dns name
+            </summary>
+        </member>
+        <member name="P:wwd_utils.ftpsite.user">
+            <summary>
+            ftp site: Username
+            </summary>
+        </member>
+        <member name="P:wwd_utils.ftpsite.password">
+            <summary>
+            ftp site: password
+            </summary>
+        </member>
+        <member name="P:wwd_utils.ftpsite.localdir">
+            <summary>
+            Local directory used to store files downloaded
+            </summary>
+        </member>
+        <member name="P:wwd_utils.ftpsite.remotedir">
+            <summary>
+            Remote Directory
+            </summary>
+        </member>
+        <member name="P:wwd_utils.ftpsite.mask">
+            <summary>
+            File name mask or pattern
+            </summary>
+        </member>
+        <member name="P:wwd_utils.ftpsite.sep">
+            <summary>
+            Character used to separate fields when "tostring" is called.
+            </summary>
+        </member>
+        <member name="E:wwd_utils.ftpsite.PropertyChanged">
+            <summary>
+            This event allows the class to be attached to data aware components.
+            </summary>
+        </member>
+        <member name="T:wwd_utils.Logging">
+            <summary>
+            Provide Logging facility to log to a file, eventlog, or both.
+            </summary>
+        </member>
+        <member name="M:wwd_utils.Logging.#ctor">
+            <summary>
+            When user does not specify output file, create or use file %temp%\TestFile.txt
+            </summary>
+        </member>
+        <member name="M:wwd_utils.Logging.#ctor(System.String)">
+            <summary>
+            User specified a logfile, also set loggingto=File
+            </summary>
+            <param name="File"></param>
+        </member>
+        <member name="M:wwd_utils.Logging.LogMsg(System.String)">
+            <summary>
+            Save Message to Logfile
+            </summary>
+            <param name="Message"></param>
+        </member>
+        <member name="M:wwd_utils.Logging.LogMsg(System.String,wwd_utils.Logging.LoggingLevel)">
+            <summary>
+            Output log message, if passed Level is > classes loglevel.
+            </summary>
+            <param name="Message"></param>
+            <param name="Level"></param>
+        </member>
+        <member name="P:wwd_utils.Logging.FileName">
+            <summary>
+            Output file name, if user has specified LogTo=File or FileAndEventLog.
+            </summary>
+        </member>
+        <member name="P:wwd_utils.Logging.LogLevel">
+            <summary>
+            User specified Logging Level
+            </summary>
+        </member>
+        <member name="P:wwd_utils.Logging.EventSource">
+            <summary>
+            User specified Event Source
+            </summary>
+        </member>
+        <member name="P:wwd_utils.Logging.LoggingTo">
+            <summary>
+            User specified Logging destination
+            </summary>
+        </member>
+        <member name="T:wwd_utils.Logging.LoggingLevel">
+            <summary>
+            Logging level setting
+            </summary>
+        </member>
+        <member name="T:wwd_utils.Logging.LogTo">
+            <summary>
+            Specifies where to send logging messages
+            </summary>
+        </member>
+        <member name="T:wwd_utils.netutils">
+            <summary>
+            Network related class to support ping/ftp/etc.
+            </summary>
+        </member>
+        <member name="M:wwd_utils.netutils.#ctor">
+            <summary>
+            Init 
+            </summary>
+        </member>
+        <member name="M:wwd_utils.netutils.PingIP(System.String,System.Int32)">
+            <summary>
+            Ping remote system, return true or false depending on results.
+            </summary>
+            <param name="Address"></param>
+            <param name="TimeOutInSecs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.netutils.PingIP">
+            <summary>
+            Perform Ping to IP
+            </summary>
+            <returns>True if success, False if failed</returns>
+        </member>
+        <member name="M:wwd_utils.netutils.TransferFiles">
+            <summary>
+            Transfer Files in directory
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:wwd_utils.netutils.IP">
+            <summary>
+            IP address of host to ping
+            </summary>
+        </member>
+        <member name="P:wwd_utils.netutils.Timeout">
+            <summary>
+            Timeout value in seconds.
+            </summary>
+        </member>
+        <member name="P:wwd_utils.netutils.Results">
+            <summary>
+            Return ping results.
+            </summary>
+        </member>
+        <member name="P:wwd_utils.netutils.ResultTime">
+            <summary>
+            Return ping time as string.
+            </summary>
+        </member>
+        <member name="T:wwd_utils.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:wwd_utils.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:wwd_utils.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:wwd_utils.Properties.Resources.App">
+            <summary>
+              Looks up a localized string similar to ABB.
+            </summary>
+        </member>
+        <member name="P:wwd_utils.Properties.Resources.Company">
+            <summary>
+              Looks up a localized string similar to WWD.
+            </summary>
+        </member>
+        <member name="T:wwd_utils.ReadT00">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:wwd_utils.regutils">
+            <summary>
+            Developed to handle saving of values in registry.  This method
+            of saving application settings should be avoided.  Settings
+            should be saved via xml using AppSettings class or something
+            similar.
+            </summary>
+        </member>
+        <member name="M:wwd_utils.regutils.writestring(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="val"></param>
+        </member>
+        <member name="T:wwd_utils.SettingsFile">
+            <summary>
+            Abstraction of an interface to an xml settings file.
+            </summary>
+        </member>
+        <member name="T:wwd_utils.Settings">
+            <summary>
+            This class provides read/write to an xml file, the actual file is provided
+            as a parameter to the constructor.
+            </summary>
+        </member>
+        <member name="M:wwd_utils.Settings.#ctor(System.String)">
+             <summary>
+            
+             </summary>
+             <param name="path"></param>
+        </member>
+        <member name="M:wwd_utils.Settings.GetSetting(System.String,System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="xPath"></param>
+             <param name="defaultValue"></param>
+             <returns></returns>
+        </member>
+        <member name="M:wwd_utils.Settings.PutSetting(System.String,System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="xPath"></param>
+             <param name="value"></param>
+        </member>
+        <member name="M:wwd_utils.Settings.GetSetting(System.String,System.String)">
+             <summary>
+            
+             </summary>
+             <param name="xPath"></param>
+             <param name="defaultValue"></param>
+             <returns></returns>
+        </member>
+        <member name="M:wwd_utils.Settings.PutSetting(System.String,System.String)">
+             <summary>
+            
+             </summary>
+             <param name="xPath"></param>
+             <param name="value"></param>
+        </member>
+        <member name="M:wwd_utils.SiteFile.LoadFileRecord">
+            <summary>
+            Load full file path from DB record.
+            </summary>
+        </member>
+        <member name="T:wwd_utils.StatusUpdate">
+            <summary>
+            Provide mechanism to update the table SiteStatus
+            </summary>
+        </member>
+        <member name="M:wwd_utils.StatusUpdate.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="SiteName"></param>
+        </member>
+        <member name="M:wwd_utils.StatusUpdate.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="M:wwd_utils.StatusUpdate.SetMessage(System.String,wwd_utils.StatusUpdate.StatusType)">
+            <summary>
+            Write Message to SiteStatus table
+            </summary>
+            <param name="Msg"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:wwd_utils.StatusUpdate.AllOK">
+            <summary>
+            Set Status to OK
+            </summary>
+        </member>
+        <member name="T:wwd_utils.StatusUpdate.StatusType">
+            <summary>
+            Type of status update
+            </summary>
+        </member>
+        <member name="T:wwd_utils.TimerClass">
+            <summary>
+            This class was created to simplify the use of a timer in 
+            a windows service.  The TimerState enumeration was created
+            to help make it re-entrant, and provide information to parent
+            as to status of this timer.
+            
+            The start and stop methods technically do not stop the timer, 
+            however the TimerState allows execution of ticker when
+            state == Running.
+            
+            The semaphore timelock is used to allow only one tick() call, 
+            thus only allowing one caller.
+            
+            </summary>
+        </member>
+        <member name="M:wwd_utils.TimerClass.Start">
+            <summary>Startup code simply changes the state.  The state is then changed in the timer event.</summary> 
+        </member>
+        <member name="M:wwd_utils.TimerClass.Stop">
+            <summary>We just set the state to stopping, the state is then changed to stopped at the timer event.</summary> 
+        </member>
+        <member name="M:wwd_utils.TimerClass.#ctor">
+            <summary>Initialize timer class and enable.</summary> 
+        </member>
+        <member name="M:wwd_utils.TimerClass.OnTimedEvent(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>This is the actual timer event.  Based on the state, the user supplied ticker() is/isnot called. </summary> 
+        </member>
+        <member name="P:wwd_utils.TimerClass.ClockFace">
+            <summary>Used to provide a single character that looks like the hand of a clock.</summary> 
+        </member>
+        <member name="P:wwd_utils.TimerClass.StateText">
+            <summary>This is a simple string describing the current clock state</summary> 
+        </member>
+        <member name="T:wwd_utils.TimerClass.TimerState">
+            <summary></summary> 
+        </member>
+        <member name="T:wwd_utils.TimerClass.Tick">
+            <summary></summary> 
+        </member>
+        <member name="T:wwd_utils.UpdateABBFileList">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:wwd_utils.UpdateABBFileList.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:wwd_utils.UpdateABBFileList.FileIsValid(wwd_utils.MyFileInfo)" -->
+        <member name="M:wwd_utils.UpdateABBFileList.NeedsProcessing(wwd_utils.MyFileInfo)">
+            <summary>
+            Determine if "File" record has NeedsProcessing set to true.
+            </summary>
+            <param name="f">MyFileInfo</param>
+            <returns>True if record is found, and needs processing</returns>
+        </member>
+        <member name="M:wwd_utils.UpdateABBFileList.FileInDB(wwd_utils.MyFileInfo)">
+            <summary>
+            Determine if a file is found in ABB database.
+            </summary>
+            <param name="onefile"></param>
+            <returns>True if found, False if not found</returns>
+        </member>
+        <member name="M:wwd_utils.UpdateABBFileList.UpdateFileInDB(wwd_utils.MyFileInfo)">
+            <summary>
+            Update the record describing this file, indicate needs processing.
+            </summary>
+            <param name="f"></param>
+        </member>
+        <member name="M:wwd_utils.UpdateABBFileList.AddFileToDB(wwd_utils.MyFileInfo)">
+            <summary>
+            Add a files record
+            </summary>
+            <param name="f"></param>
+        </member>
+        <member name="T:wwd_utils.user">
+            <summary>
+            Test user class.
+            </summary>
+        </member>
+        <member name="T:wwd_utils.ABB_FileTypes">
+            <summary>
+            ABB_FileTypes
+            The ABB Paperless recorders generated two types of data
+            files.  Files ending in D## (D00, D01, ...) and T## (T00, T01, ...)
+            contain log data.
+            </summary>
+        </member>
+        <member name="T:wwd_utils.dbutils">
+             <summary>
+             dbutils
+            
+             </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:wwd_utils.EncDec" -->
+        <member name="M:wwd_utils.EncDec.Encrypt(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Encrypt
+            </summary>
+            <param name="clearData"></param>
+            <param name="Key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.EncDec.Encrypt(System.String)">
+            <summary>
+            Encrypt
+            </summary>
+            <param name="clearText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.EncDec.Encrypt(System.String,System.String)">
+            <summary>
+            Encrypt
+            </summary>
+            <param name="clearText"></param>
+            <param name="Password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.EncDec.Encrypt(System.Byte[],System.String)">
+            <summary>
+            Encrypt
+            </summary>
+            <param name="clearData"></param>
+            <param name="Password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.EncDec.Encrypt(System.String,System.String,System.String)">
+            <summary>
+            Encrypt
+            </summary>
+            <param name="fileIn"></param>
+            <param name="fileOut"></param>
+            <param name="Password"></param>
+        </member>
+        <member name="M:wwd_utils.EncDec.Decrypt(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Decrypt
+            </summary>
+            <param name="cipherData"></param>
+            <param name="Key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.EncDec.Decrypt(System.String)">
+             <summary>
+            
+             </summary>
+             <param name="cipherText"></param>
+             <returns></returns>
+        </member>
+        <member name="M:wwd_utils.EncDec.Decrypt(System.String,System.String)">
+             <summary>
+            
+             </summary>
+             <param name="cipherText"></param>
+             <param name="Password"></param>
+             <returns></returns>
+        </member>
+        <member name="M:wwd_utils.EncDec.Decrypt(System.Byte[],System.String)">
+            <summary>
+            Decrypt
+            </summary>
+            <param name="cipherData"></param>
+            <param name="Password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:wwd_utils.EncDec.Decrypt(System.String,System.String,System.String)">
+            <summary>
+            Decrypt
+            </summary>
+            <param name="fileIn"></param>
+            <param name="fileOut"></param>
+            <param name="Password"></param>
+        </member>
+        <member name="T:wwd_utils.Misc">
+            <summary>
+            Misc class,
+            Contains
+            </summary>
+        </member>
+        <member name="M:wwd_utils.Misc.Check_DirectoryOK(System.String)">
+            <summary>
+            Check_DirectoryOK :
+            Check to see if directory exists, create if does not exist.
+            If an error is generated when creation is executed function
+            returns false.
+            </summary>
+            <param name="dir"></param>
+            <returns>
+            True: if Directory exists or was created
+            False: if error generated when create executed.
+            </returns>
+        </member>
+    </members>
+</doc>

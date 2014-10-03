@@ -1,0 +1,3 @@
+D:\local\projects\git\abb\TestApp\bin\Debug\TestApp.exe.config
+D:\local\projects\git\abb\TestApp\obj\x86\Debug\TestApp.exe
+D:\local\projects\git\abb\TestApp\obj\x86\Debug\TestApp.pdb
